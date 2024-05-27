@@ -32,9 +32,11 @@ public class MagicalItem {
     public String getType(){
         return type;
     }
-
-    public int getIdFromName(String name){
-        return ID;
+    public MagicalItem(){}
+    public MagicalItem(String name, int quality, String type){
+        this.name = name;
+        this.quality = quality;
+        this.type = type;
     }
 
     @Override

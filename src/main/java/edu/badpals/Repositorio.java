@@ -38,6 +38,10 @@ public class Repositorio {
                 return Optional.ofNullable(item.isPresent() ? item.get() : null);
         }
 
+        public Optional<MagicalItem> loadItem(String name, int quality, String type){
+
+        }
+
 
 
 }
