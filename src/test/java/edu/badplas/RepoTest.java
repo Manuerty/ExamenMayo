@@ -74,6 +74,7 @@ public class RepoTest {
      * de la clase Order a la tabla t_orders
      * El id de esta clase ha de seguir una estrategia
      * Identity
+     * */
 
     @Test
     public void test_mapping_order() {
