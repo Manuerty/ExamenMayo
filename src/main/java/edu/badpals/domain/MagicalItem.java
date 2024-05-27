@@ -33,6 +33,10 @@ public class MagicalItem {
         return type;
     }
 
+    public int getIdFromName(String name){
+        return ID;
+    }
+
     @Override
     public String toString(){
         return this.getName() + " " + this.getQuality() + " " + this.getType();

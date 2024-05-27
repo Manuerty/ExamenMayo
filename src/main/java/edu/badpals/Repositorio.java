@@ -9,10 +9,13 @@ import edu.badpals.repository.WizardRepository;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
+
+
+import java.util.Optional;
 
 @ApplicationScoped
 public class Repositorio {
+
 
         @Inject
         WizardRepository wizardRepo;
@@ -22,5 +25,19 @@ public class Repositorio {
 
         @Inject
         OrderRepository orderRepo;
+
+        public Repositorio(){}
+
+        public Optional<Wizard> loadWizard(String name) {
+                Optional<Wizard> wizard = wizardRepo.findByIdOptional(name);
+                return Optional.ofNullable(wizard.isPresent() ? wizard.get() : null);
+        }
+
+        public Optional<MagicalItem> loadItem(String name) {
+                Optional<MagicalItem> item = magicalItemRepo.findByUserName(name);
+                return Optional.ofNullable(item.isPresent() ? item.get() : null);
+        }
+
+
 
 }

@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import jakarta.inject.Inject;
 
 
+
 @QuarkusTest
 public class RepoTest {
 
@@ -105,6 +106,7 @@ public class RepoTest {
     /**
      * Implementa el metodo loadWizard del repositorio
      * que devuelve un Optional del mago/a con el nombre indicado
+     * */
 
 
     @Test
@@ -128,6 +130,7 @@ public class RepoTest {
      *
      * El metodo devueve el primer item cuyo nombre
      * coincida con el especificado.
+     * */
 
     @Test
     public void test_load_item() {

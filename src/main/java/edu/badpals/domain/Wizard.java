@@ -25,6 +25,21 @@ public class Wizard {
     public String getPerson(){
         return person;
     }
+
+    public int setDexterity(int dexterity){
+        return this.dexterity = dexterity;
+    }
+
+    public String setPerson(String person){
+        return this.person = person;
+    }
+
+
+
+    public Wizard(){}
+
+
+
     @Override
     public String toString(){
         return this.getName() + " " + this.getDexterity() + " " + this.getPerson();
