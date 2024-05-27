@@ -1,6 +1,6 @@
 package edu.badplas;
 
-import edu.badpals.domain.MagicalItem;
+import edu.badpals.domain.*;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
