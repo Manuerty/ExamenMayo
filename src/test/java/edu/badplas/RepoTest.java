@@ -1,5 +1,7 @@
 package edu.badplas;
 
+
+import edu.badpals.Repositorio;
 import edu.badpals.domain.*;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.persistence.EntityManager;
@@ -7,7 +9,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
+import jakarta.inject.Inject;
 
 
 @QuarkusTest
@@ -16,8 +18,8 @@ public class RepoTest {
     @PersistenceContext
     EntityManager em;
 
-    // @Inject
-    // Repositorio repo;
+    @Inject
+    Repositorio repo;
 
     // @Inject
     // ServiceItem servicio;
@@ -92,6 +94,7 @@ public class RepoTest {
      * Utiliza el código:
      * @Inject
      * Repositorio repo;
+     * */
 
 
     @Test
