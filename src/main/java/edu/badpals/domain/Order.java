@@ -7,17 +7,24 @@ import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 @Table(name="t_orders")
 public class Order {
 
-    @Id @GeneratedValue(strategy= GenerationType.AUTO)
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="ord_id")
     private int ID;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="ord_wizard")
     private Wizard wizard;
 
     @OneToOne
     @JoinColumn(name="ord_item")
     private MagicalItem item;
+
+    public Order(){}
+
+    public Order( Wizard orderWizard, MagicalItem orderedItem){
+        this.wizard = orderWizard;
+        this.item = orderedItem;
+    }
 
     public int getId() {
         return ID;
@@ -30,11 +37,12 @@ public class Order {
         return item;
     }
 
-    public Order(){}
+    public void setWizard(Wizard wizard){
+        this.wizard = wizard;
+    }
 
-    public Order( Wizard orderWizard, MagicalItem orderedItem){
-        this.wizard = orderWizard;
-        this.item = orderedItem;
+    public void setItem(MagicalItem item){
+        this.item = item;
     }
 
     @Override

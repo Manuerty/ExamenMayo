@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class MagicalItemRepository implements PanacheRepositoryBase<MagicalItem, String> {
-    public Optional<MagicalItem> findByUserName(String item_name) {
+    public Optional<MagicalItem> findByItemName(String item_name) {
         List<MagicalItem> ordenes = this.listAll()
                 .stream()
                 .filter(o -> o.getName().equalsIgnoreCase(item_name))

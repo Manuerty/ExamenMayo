@@ -2,6 +2,7 @@ package edu.badpals.domain;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name="t_wizards")
 public class Wizard {
@@ -14,7 +15,10 @@ public class Wizard {
     private int dexterity;
 
     @Column(name="wizard_person")
-    private String person;
+    @Enumerated(EnumType.STRING)
+    private WizardType person;
+
+    public Wizard(){}
 
     public String getName(){
         return name;
@@ -22,7 +26,7 @@ public class Wizard {
     public int getDexterity(){
         return dexterity;
     }
-    public String getPerson(){
+    public WizardType getPerson(){
         return person;
     }
 
@@ -30,15 +34,9 @@ public class Wizard {
         return this.dexterity = dexterity;
     }
 
-    public String setPerson(String person){
+    public WizardType setPerson(WizardType person){
         return this.person = person;
     }
-
-
-
-    public Wizard(){}
-
-
 
     @Override
     public String toString(){

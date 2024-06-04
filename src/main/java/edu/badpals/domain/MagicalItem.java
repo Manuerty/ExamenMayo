@@ -19,6 +19,14 @@ public class MagicalItem {
     @Column(name="item_type")
     private String type;
 
+    public MagicalItem(){}
+
+    public MagicalItem(String itemName, int quality, String itemType){
+        this.name = itemName;
+        this.quality = quality;
+        this.type = itemType;
+    }
+
     public int getId() {
         return ID;
     }
@@ -33,9 +41,6 @@ public class MagicalItem {
         return type;
     }
 
-    public int getIdFromName(String name){
-        return ID;
-    }
 
     @Override
     public String toString(){
