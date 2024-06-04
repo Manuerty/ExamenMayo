@@ -57,7 +57,6 @@ public class Repositorio {
                 return this.magicalItemRepo.list("name", name);
         }
 
-        /**
         @Transactional
         public Optional<Order> placeOrder( String wizardName, String itemName){
                 Order orden = null;
@@ -71,20 +70,26 @@ public class Repositorio {
                 }
                 return Optional.ofNullable(orden);
         }
-        */
+
         @Transactional
-        public Optional<Order> placeOrder( String wizardName, String itemName){
-                Order orden = null;
-                Optional<Wizard> wizard = this.wizardRepo.findByIdOptional(wizardName);
-                Optional<MagicalItem> item = this.magicalItemRepo.findByItemName(itemName);
-                if (wizard.isPresent() && item.isPresent() && !wizard.get().getPerson().equals(WizardType.MUDBLOOD)){
-                        orden = new Order();
-                        orden.setWizard(wizard.get());
-                        orden.setItem(item.get());
-                        this.orderRepo.persist(orden);
-                }
-                return Optional.ofNullable(orden);
+        public void createItem( String itemName, int quality, String itemType){
+                MagicalItem item = new MagicalItem(itemName, quality, itemType);
+                this.magicalItemRepo.persist(item);
         }
+
+        @Transactional
+        public void createItems(List<MagicalItem> items){
+                this.magicalItemRepo.persist(items);
+        }
+
+        @Transactional
+        public void deleteItem(MagicalItem item){
+                Optional<MagicalItem> itemToDelete = loadItem(item);
+                if (itemToDelete.isPresent()){
+                        this.magicalItemRepo.delete(itemToDelete.get());
+                }
+        }
+
 
 
 

@@ -3,6 +3,7 @@ package edu.badplas;
 
 import edu.badpals.Repositorio;
 import edu.badpals.domain.*;
+import edu.badpals.service.ServiceItem;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -25,8 +26,8 @@ public class RepoTest {
     @Inject
     Repositorio repo;
 
-    // @Inject
-    // ServiceItem servicio;
+     @Inject
+     ServiceItem servicio;
 
     /**
      * Tests sobre los mappings
@@ -234,7 +235,7 @@ public class RepoTest {
      * Implementa el metodo createItem() del repositorio
      * que crea un item en la base de datos.
 
-
+    */
     @Test
     @Transactional
     public void test_create_item() {
@@ -258,6 +259,7 @@ public class RepoTest {
      * coincida con el especificado, sino, tu codigo
      * devolvera uno de los pases a backstage que no
      * es el que buscamos.
+     */
 
 
     @Test
@@ -300,7 +302,7 @@ public class RepoTest {
      * name, quality y type que el de la peticion
      * y no cualquier otro item de la base de datos
      * solo con el mismo nombre.
-
+    */
 
     @Test
     @Transactional
@@ -327,6 +329,7 @@ public class RepoTest {
      * Utiliza el código:
      * @Inject
      * ServiceItem servicio;
+     */
 
 
     @Test
